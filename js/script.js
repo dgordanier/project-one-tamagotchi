@@ -1,10 +1,30 @@
 // Click start button
+let start = document.getElementById("start")
 
-// prompt for character name
+let name = document.getElementById("charName")
 
-// Enter character name
+let btn = document.createElement("button");
+    btn.innerHTML = "Click to Begin";
+    start.appendChild(btn);
 
-// character name appears somewhere on screen
+btn.addEventListener("click", (event) => {
+    event.preventDefault();
+    const input = window.prompt("Enter Character Name"); // prompt for character name
+    if (input !== null && input !== "") {
+    btn.style.visibility = "hidden";
+    name.innerHTML = `<p>${input}<br>the Elf</p>`;// character name appears in display
+    const elf = document.getElementById("elf");
+    elf.innerHTML = "<img src = ./images/elf.png>";
+    elf.style.position = "relative";
+    } else {
+        return
+    }
+});
+
+// const elf = document.getElementById("elf");
+// elf.style.height = 10px;
+
+//name.addEventListener()
 
 // Elf graphic appears
 

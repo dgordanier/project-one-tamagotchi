@@ -1,6 +1,82 @@
-body {
-    background-image: url("https://ak.picdn.net/shutterstock/videos/923260/thumb/1.jpg");
-    background-color: #cccccc;
-    background-position: top center;
-    background-size: 87%;
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
     }
+
+button {
+    opacity: 0;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 60px;
+    width: auto;
+    animation: fadeIn 4s forwards;
+    -webkit-animation: fadeIn 4s forwards;
+    -moz-animation: fadeIn 4s forwards;
+    -o-animation: fadeIn 4s forwards;
+    -ms-animation: fadeIn 4s forwards;
+}
+@keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-moz-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-webkit-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-o-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-ms-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+div {
+
+}
+
+#start {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+#charName {
+    display: flex;
+    font-size: 30px;
+    color: white;
+    position: absolute;
+    padding: 8px;
+    height: auto;
+    text-align: center;
+    border-right: solid white;
+    
+}
+
+.display {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    height: 14%;
+    width: 30%;
+    border: solid white;
+    background: rgba(128, 128, 128, 0.5)
+}

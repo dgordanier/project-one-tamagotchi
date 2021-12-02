@@ -1,7 +1,10 @@
 # project-one-tamagotchi #
-SEIRFX1026 Project One - Build a Tamagotchi style game
+## SEIRFX1026 Project One - Build a Tamagotchi style game
 
-# USER STORY:
+### Wireframe
+https://www.figma.com/file/jezrm6DM62rrKKptlkaLMO/Project-1
+
+### USER STORY:
 As a user I want to click "Start" to begin
 
 As a user I want to enter a name for my Evil Elf
