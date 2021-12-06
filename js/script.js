@@ -17,6 +17,18 @@ const sleepyBar = document.getElementById("sleepyBar");
 
 const boredBar = document.getElementById("boredBar");
 
+const feed = document.getElementById("feed");
+
+const sleep = document.getElementById("sleep");
+
+const play = document.getElementById("play");
+
+let hungerWidth = 0;
+
+let sleepWidth = 0;
+
+let boredWidth = 0;
+
 // / / / / /\ \ \ \ \ \\
 //     START BUTTON   \\
 // / / / / /\ \ \ \ \ \\
@@ -40,7 +52,7 @@ begin = btn.addEventListener("click", (event) => {
     elf.innerHTML = "<img src = ./images/elf.png>"; // Elf graphic appears
 
     // / / / / /\ \ \ \ \ \\
-    //    START  TIMER    \\
+    //    START  TIMER    \\`12
     // / / / / /\ \ \ \ \ \\
     const gameStartTime = new Date().getTime();
         
@@ -51,42 +63,39 @@ begin = btn.addEventListener("click", (event) => {
         // constantly gets a new time after the start of the game in milliseconds and converts it to seconds
         // ages the pet by 1 every 10 seconds && console.log for debugging
         // if (seconds%5 === 0) {pet.age++;}
-        // console.log(age of pet is ${pet.age});
-        }, 1000);
-    
-    let hungerStatus = setInterval(function() {
-        let now = new Date().getTime();
-        let milli = now - gameStartTime;
-        let seconds = Math.floor((milli%(1000*60))/1000);
-        if (seconds < 11) {
-            hungerBar.style.width = `${seconds * 10}%`;
-        }else (clearInterval(hungerStatus));
-        }, 1000);
-    
-    let sleepStatus = setInterval(function() {
-        let now = new Date().getTime();
-        let milli = now - gameStartTime;
-        let seconds = Math.floor((milli%(1000*60))/1000);
-        if (seconds < 6) {
-            sleepBar.style.width = `${seconds * 20}%`;
-        }else (clearInterval(sleepStatus))
         }, 1000);
 
+    // / / / / /\ \ \ \ \ \\
+    //  DISPLAY  METRICS  \\
+    // / / / / /\ \ \ \ \ \\
+    let hungerStatus = setInterval(function() {
+        hungerWidth = hungerWidth + 5;
+        hungerBar.style.width = hungerWidth + "%";
+        if (hungerWidth >= 100) {
+            clearInterval(hungerStatus);
+        }
+    }, 500);
+
+    let sleepStatus = setInterval(function() {
+        sleepWidth = sleepWidth + 5;
+        sleepBar.style.width = sleepWidth + "%";
+        if (sleepWidth >= 100) {
+            clearInterval(sleepStatus);
+        }
+    }, 700);
+
     let boredStatus = setInterval(function() {
-        let now = new Date().getTime();
-        let milli = now - gameStartTime;
-        let seconds = Math.floor((milli%(1000*60))/1000);
-        if (seconds < 5) {
-            boredBar.style.width = `${seconds * 25}%`;
-        }else (clearInterval(boredStatus))
-        }, 1000);
+        boredWidth = boredWidth + 6;
+        boredBar.style.width = boredWidth + "%";
+        if (boredWidth >= 100) {
+            clearInterval(boredStatus);
+        }
+    }, 1000);
 });
 
 // / / / / /\ \ \ \ \ \\
 //     STATUS BARS    \\
 // / / / / /\ \ \ \ \ \\
-
-// display metrics (hunger, sleepiness, boredom, age) scale of 1-10
 
 // add buttons (feed, turn off lights, play)
 

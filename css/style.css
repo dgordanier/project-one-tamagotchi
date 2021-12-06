@@ -122,6 +122,14 @@ button {
   flex-grow: 1;
 }
 
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 50%;
+  bottom: 30px;
+  }
+
 #hungerBar {
   background-color: red;
 }
