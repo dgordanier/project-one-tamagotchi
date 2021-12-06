@@ -89,6 +89,22 @@ button {
   white-space: normal;
 }
 
+#age {
+  font-size: 30px;
+  color: white;
+  padding: 8px;
+  text-align: center;
+  width: 10%;
+  overflow-wrap: break-word;
+  position: absolute;
+  right: 20px;
+  top: 175px;
+  height: 12%;
+  float: right;
+  background: rgba(128, 128, 128, 0.5);
+  border: white;
+}
+
 .bars {
   display: flex;
   position: absolute;
@@ -126,7 +142,7 @@ button {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 50%;
+  width: 40%;
   bottom: 30px;
   }
 
@@ -140,4 +156,16 @@ button {
 
 #boredBar {
   background-color: red;
+}
+
+#feed {
+  width: 12%;
+}
+
+#sleep {
+  width: 20%;
+}
+
+#play {
+  width: 15%;
 }

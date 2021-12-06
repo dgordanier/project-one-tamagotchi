@@ -5,9 +5,15 @@ const start = document.getElementById("start");
 
 const elf = document.getElementById("elf");
 
+const snowman = document.getElementById("snowman");
+
 const display = document.getElementsByClassName("display");
 
 const charName = document.getElementById("charName");
+
+const age = document.getElementById("age")
+
+const icons = document.getElementById("icons")
 
 const bars = document.getElementsByClassName("bars");
 
@@ -42,6 +48,7 @@ begin = btn.addEventListener("click", (event) => {
     if (input !== null && input !== "") {
     btn.style.visibility = "hidden";
     charName.innerHTML = `<p>Elf<br>${input}</p>`; // character name appears in display
+    age.innerHTML = "<p>AGE:</p>"
     }else {
         return
     }
@@ -62,9 +69,15 @@ begin = btn.addEventListener("click", (event) => {
         let seconds = Math.floor((milli%(1000*60))/1000);
         // constantly gets a new time after the start of the game in milliseconds and converts it to seconds
         // ages the pet by 1 every 10 seconds && console.log for debugging
-        // if (seconds%5 === 0) {pet.age++;}
-        console.log(seconds);
+        a = 0;
+        if (seconds%40 === 0) {
+            levelUp = a + 1;
+            age.innerHTML = `<p>AGE:${levelUp}</p>`;
+        }
         if (seconds >= 120) {
+            clearInterval(hungerStatus);
+            clearInterval(sleepStatus);
+            clearInterval(boredStatus);
             clearInterval(globalTimer);
         }
         }, 1000);
@@ -77,6 +90,10 @@ begin = btn.addEventListener("click", (event) => {
         hungerBar.style.width = hungerWidth + "%";
         if (hungerWidth >= 100) {
             clearInterval(hungerStatus);
+            clearInterval(sleepStatus);
+            clearInterval(boredStatus);
+            clearInterval(globalTimer);
+            elf.innerHTML = "";
         }
     }, 500);
 
@@ -84,7 +101,9 @@ begin = btn.addEventListener("click", (event) => {
         sleepWidth = sleepWidth + 5;
         sleepBar.style.width = sleepWidth + "%";
         if (sleepWidth >= 100) {
+            clearInterval(hungerStatus);
             clearInterval(sleepStatus);
+            clearInterval(boredStatus);
             clearInterval(globalTimer);
         }
     }, 700);
@@ -93,12 +112,17 @@ begin = btn.addEventListener("click", (event) => {
         boredWidth = boredWidth + 6;
         boredBar.style.width = boredWidth + "%";
         if (boredWidth >= 100) {
+            clearInterval(hungerStatus);
+            clearInterval(sleepStatus);
             clearInterval(boredStatus);
             clearInterval(globalTimer);
         }
     }, 1000);
 });
 
+// / / / / /\ \ \ \ \ \\
+//       BUTTONS      \\
+// / / / / /\ \ \ \ \ \\
 feed.addEventListener("click", (event) => {
     event.preventDefault();
     if (hungerWidth > 0) {
@@ -119,14 +143,6 @@ play.addEventListener("click", (event) => {
         boredWidth = boredWidth - 6;
     }else (event = false);
 });
-
-// / / / / /\ \ \ \ \ \\
-//     STATUS BARS    \\
-// / / / / /\ \ \ \ \ \\
-
-// add buttons (feed, turn off lights, play)
-
-// increase (hunger, sleepiness, boredom,) metrics on interval
 
 // increase age every x minutes
 
