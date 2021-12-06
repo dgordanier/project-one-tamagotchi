@@ -63,8 +63,12 @@ begin = btn.addEventListener("click", (event) => {
         // constantly gets a new time after the start of the game in milliseconds and converts it to seconds
         // ages the pet by 1 every 10 seconds && console.log for debugging
         // if (seconds%5 === 0) {pet.age++;}
+        console.log(seconds);
+        if (seconds >= 120) {
+            clearInterval(globalTimer);
+        }
         }, 1000);
-
+        
     // / / / / /\ \ \ \ \ \\
     //  DISPLAY  METRICS  \\
     // / / / / /\ \ \ \ \ \\
@@ -81,6 +85,7 @@ begin = btn.addEventListener("click", (event) => {
         sleepBar.style.width = sleepWidth + "%";
         if (sleepWidth >= 100) {
             clearInterval(sleepStatus);
+            clearInterval(globalTimer);
         }
     }, 700);
 
@@ -89,8 +94,30 @@ begin = btn.addEventListener("click", (event) => {
         boredBar.style.width = boredWidth + "%";
         if (boredWidth >= 100) {
             clearInterval(boredStatus);
+            clearInterval(globalTimer);
         }
     }, 1000);
+});
+
+feed.addEventListener("click", (event) => {
+    event.preventDefault();
+    if (hungerWidth > 0) {
+        hungerWidth = hungerWidth - 10;
+    }else (event = false)
+});
+
+sleep.addEventListener("click", (event) => {
+    event.preventDefault();
+    if (sleepWidth > 0) {
+        sleepWidth = sleepWidth - 5;
+    }else (event = false);
+});
+
+play.addEventListener("click", (event) => {
+    event.preventDefault();
+    if (boredWidth > 0) {
+        boredWidth = boredWidth - 6;
+    }else (event = false);
 });
 
 // / / / / /\ \ \ \ \ \\
