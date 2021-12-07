@@ -1,19 +1,23 @@
 // / / / / /\ \ \ \ \ \\
 //      VARIABLES     \\
 // / / / / /\ \ \ \ \ \\
+const background = document.getElementById("background");
+
 const start = document.getElementById("start");
 
 const elf = document.getElementById("elf");
 
 const snowman = document.getElementById("snowman");
 
+const santa = document.getElementById("santa");
+
 const display = document.getElementsByClassName("display");
 
 const charName = document.getElementById("charName");
 
-const age = document.getElementById("age")
+const age = document.getElementById("age");
 
-const icons = document.getElementById("icons")
+const playButtons = document.getElementById("playButtons");
 
 const bars = document.getElementsByClassName("bars");
 
@@ -29,6 +33,8 @@ const sleep = document.getElementById("sleep");
 
 const play = document.getElementById("play");
 
+let displayAge = 0;
+
 let hungerWidth = 0;
 
 let sleepWidth = 0;
@@ -42,13 +48,12 @@ const btn = document.createElement("button");
     btn.innerHTML = "Click to Begin";
     start.appendChild(btn);
 
-begin = btn.addEventListener("click", (event) => {
+let begin = btn.addEventListener("click", (event) => {
     event.preventDefault();
-    const input = window.prompt("Enter Character Name"); // prompt for character name
+    let input = window.prompt("Enter Character Name"); // prompt for character name
     if (input !== null && input !== "") {
     btn.style.visibility = "hidden";
-    charName.innerHTML = `<p>Elf<br>${input}</p>`; // character name appears in display
-    age.innerHTML = "<p>AGE:</p>"
+    charName.innerHTML = `<h4>ELF:<br>${input}</h4>`; // character name appears in display
     }else {
         return
     }
@@ -57,30 +62,34 @@ begin = btn.addEventListener("click", (event) => {
     //  ENTER  CHARACTER  \\
     // / / / / /\ \ \ \ \ \\
     elf.innerHTML = "<img src = ./images/elf.png>"; // Elf graphic appears
+    elf.style.width = "10%";
 
     // / / / / /\ \ \ \ \ \\
-    //    START  TIMER    \\`12
+    //    START  TIMER    \\
     // / / / / /\ \ \ \ \ \\
     const gameStartTime = new Date().getTime();
         
-    let globalTimer = setInterval(function() {
-        let now = new Date().getTime();
-        let milli = now - gameStartTime;
-        let seconds = Math.floor((milli%(1000*60))/1000);
-        // constantly gets a new time after the start of the game in milliseconds and converts it to seconds
-        // ages the pet by 1 every 10 seconds && console.log for debugging
-        a = 0;
-        if (seconds%40 === 0) {
-            levelUp = a + 1;
-            age.innerHTML = `<p>AGE:${levelUp}</p>`;
+    let ageTimer = setInterval(function() {
+        displayAge = displayAge + 1;
+        if (displayAge < 20) {
+            age.innerHTML = "<h4>AGE:<br>0</h4>"
+        }else if (displayAge%20 === 0) {
+            let levelUp = displayAge / 20;
+            age.innerHTML = `<h4>AGE:<br>${levelUp}</h4>`;
+            elf.style.width = levelUp * 10 + "%"
         }
-        if (seconds >= 120) {
+        if (displayAge >= 60) {
             clearInterval(hungerStatus);
             clearInterval(sleepStatus);
             clearInterval(boredStatus);
-            clearInterval(globalTimer);
+            clearInterval(ageTimer);
+            elf.innerHTML = "";
+            santa.innerHTML = "<img src = ./images/smoking_santa.png>";
+            feed.style.visibility = "hidden";
+            sleep.style.visibility = "hidden";
+            play.style.visibility = "hidden";
         }
-        }, 1000);
+    }, 1000);
         
     // / / / / /\ \ \ \ \ \\
     //  DISPLAY  METRICS  \\
@@ -92,8 +101,13 @@ begin = btn.addEventListener("click", (event) => {
             clearInterval(hungerStatus);
             clearInterval(sleepStatus);
             clearInterval(boredStatus);
-            clearInterval(globalTimer);
+            clearInterval(ageTimer);
             elf.innerHTML = "";
+            santa.innerHTML = "<img src = ./images/smoking_santa.png>";
+            feed.style.visibility = "hidden";
+            sleep.style.visibility = "hidden";
+            play.style.visibility = "hidden";
+            background.innerHTML = "";
         }
     }, 500);
 
@@ -104,7 +118,12 @@ begin = btn.addEventListener("click", (event) => {
             clearInterval(hungerStatus);
             clearInterval(sleepStatus);
             clearInterval(boredStatus);
-            clearInterval(globalTimer);
+            clearInterval(ageTimer);
+            elf.innerHTML = "";
+            snowman.innerHTML = "<img src = ./images/Evil_Snowman.png>";
+            feed.style.visibility = "hidden";
+            sleep.style.visibility = "hidden";
+            play.style.visibility = "hidden";
         }
     }, 700);
 
@@ -115,7 +134,12 @@ begin = btn.addEventListener("click", (event) => {
             clearInterval(hungerStatus);
             clearInterval(sleepStatus);
             clearInterval(boredStatus);
-            clearInterval(globalTimer);
+            clearInterval(ageTimer);
+            elf.innerHTML = "";
+            snowman.innerHTML = "<img src = ./images/Evil_Snowman.png>";
+            feed.style.visibility = "hidden";
+            sleep.style.visibility = "hidden";
+            play.style.visibility = "hidden";
         }
     }, 1000);
 });
