@@ -53,6 +53,7 @@ button {
   left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  width: 30%;
 }
 
 #elf {
@@ -196,4 +197,13 @@ button {
   display: block;
   width: 25%;
   text-align: center;
+}
+
+#message {
+  position: absolute;
+  width: 30%;
+  font-size: 30px;
+  text-align: center;
+  top: 20px;
+  left: 20px;  
 }
