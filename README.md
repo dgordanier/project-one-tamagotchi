@@ -10,15 +10,15 @@ As a user I want to click "Start" to begin
 As a user I want to enter a name for my Evil Elf
 
 As a user (or AAU) I want to keep the Evil Elf alive as long as possible, so I will tend to the elf's 3 needs; Hunger, Sleepiness & Boredom.
-    I will keep the Evil Elf fed with shakes made of blended reindeer parts -       Click the beverage icon to fill his belly
-    I will keep sleepiness levels low by wrapping him up for sleep
-    -      Click the gift box icon to wrap Evil Elf up for his slumber
-    I will keep the Evil Elf's Bordem at bay by burning down trees
-    -      Click the fire icon to scorch a spruce
+    I will keep the Evil Elf fed
+    -       Click the candy cane icon to fill his belly
+    I will keep sleepiness levels low
+    -      Click the gift sleep icon to lower sleep levels
+    I will keep the Evil Elf's Bordem at bay
+    -      Click the gift box icon to lower boredom levels
 
-AAU I may want to take revenge on the Evil Elf on behalf of the reindeer/forest
-    -      Click the snow flake icon to dump snow and freeze Evil Elf
+AAU I want to grow/evolve my Evil Elf so for every 20 seconds I keep Evil Elf alive it will grow larger until full grown at age 3
 
-AAU I want to grow/evolve my Evil Elf so for every 5 minutes I keep Evil Elf alive it will grow 5% larger until full grown and will age 1 Elf year.
+AAU if I allow any of the 3 status bars to fill up entirely the Evil Elf dies
 
-AAU if I allow any 2 of the 3 needs to get above 90% simultaneously the Evil Elf dies and the game will be restarted.
+AAU I will refresh page to play again

@@ -15,6 +15,10 @@ const santa = document.getElementById("santa");
 
 const message = document.getElementById("message");
 
+message.innerHTML = "<h2>CLICK ICONS TO KEEP HUNGER, SLEEP & BOREDOM LEVELS LOW; WIN AT AGE 3</h2>"
+
+message.style.color = "black";
+
 const display = document.getElementsByClassName("display");
 
 const charName = document.getElementById("charName");
@@ -73,14 +77,14 @@ let begin = btn.addEventListener("click", (event) => {
     // / / / / /\ \ \ \ \ \\
     const gameStartTime = new Date().getTime();
         
-    let ageTimer = setInterval(function() {
+    let ageTimer = setInterval(function() { // increase age every x minutes
         displayAge = displayAge + 1;
         if (displayAge < 20) {
             age.innerHTML = "<h4>AGE:<br>0</h4>";
         }else if (displayAge%20 === 0) {
             let levelUp = displayAge / 20;
             age.innerHTML = `<h4>AGE:<br>${levelUp}</h4>`;
-            elf.style.width = levelUp * 10 + "%"
+            elf.style.width = levelUp * 10 + "%" // morph at certain age
         }
         if (displayAge >= 60) {
             clearInterval(hungerStatus);
@@ -92,7 +96,8 @@ let begin = btn.addEventListener("click", (event) => {
             feed.style.visibility = "hidden";
             sleep.style.visibility = "hidden";
             play.style.visibility = "hidden";
-            message.innerHTML = "SANTA BEWARE!!!<br>EVIL ELF LIVES"
+            message.innerHTML = "<h2>SANTA BEWARE!!!<br>EVIL ELF LIVES</h2><br><h3>REFRESH PAGE TO PLAY AGAIN</h3>";
+            message.style.color = "red";
         }
     }, 1000);
         
@@ -102,7 +107,7 @@ let begin = btn.addEventListener("click", (event) => {
         let hungerStatus = setInterval(function() {
             hungerWidth = hungerWidth + 5;
             hungerBar.style.width = hungerWidth + "%";
-            if (hungerWidth >= 100) {
+            if (hungerWidth >= 100) { // die if metric hits 10
                 clearInterval(hungerStatus);
                 clearInterval(sleepStatus);
                 clearInterval(boredStatus);
@@ -112,14 +117,16 @@ let begin = btn.addEventListener("click", (event) => {
                 feed.style.visibility = "hidden";
                 sleep.style.visibility = "hidden";
                 play.style.visibility = "hidden";
-                message.innerHTML = "<h2>SANTA CAN RELAX<br>EVIL ELF HAS DIED</h2>";
+                message.innerHTML = "<h2>SANTA CAN RELAX<br>EVIL ELF HAS DIED</h2><br><h3>REFRESH PAGE TO PLAY AGAIN</h3>";
+                background.innerHTML = "<img src = ./images/win_background.jpg>";
+                message.style.color = "white";
             }
         }, 500);
 
         let sleepStatus = setInterval(function() {
             sleepWidth = sleepWidth + 5;
             sleepBar.style.width = sleepWidth + "%";
-            if (sleepWidth >= 100) {
+            if (sleepWidth >= 100) { // die if metric hits 10
                 clearInterval(hungerStatus);
                 clearInterval(sleepStatus);
                 clearInterval(boredStatus);
@@ -129,14 +136,16 @@ let begin = btn.addEventListener("click", (event) => {
                 feed.style.visibility = "hidden";
                 sleep.style.visibility = "hidden";
                 play.style.visibility = "hidden";
-                message.innerHTML = "<h2>SANTA CAN RELAX<br>EVIL ELF HAS DIED</h2>";
+                message.innerHTML = "<h2>SANTA CAN RELAX<br>EVIL ELF HAS DIED</h2><br><h3>REFRESH PAGE TO PLAY AGAIN</h3>";
+                background.innerHTML = "<img src = ./images/win_background.jpg>";
+                message.style.color = "white";
             }
         }, 700);
 
         let boredStatus = setInterval(function() {
             boredWidth = boredWidth + 6;
             boredBar.style.width = boredWidth + "%";
-            if (boredWidth >= 100) {
+            if (boredWidth >= 100) { // die if metric hits 10
                 clearInterval(hungerStatus);
                 clearInterval(sleepStatus);
                 clearInterval(boredStatus);
@@ -146,7 +155,9 @@ let begin = btn.addEventListener("click", (event) => {
                 feed.style.visibility = "hidden";
                 sleep.style.visibility = "hidden";
                 play.style.visibility = "hidden";
-                message.innerHTML = "<h2>SANTA CAN RELAX<br>EVIL ELF HAS DIED</h2>";
+                message.innerHTML = "<h2>SANTA CAN RELAX<br>EVIL ELF HAS DIED</h2><br><h3>REFRESH PAGE TO PLAY AGAIN</h3>";
+                background.innerHTML = "<img src = ./images/win_background.jpg>";
+                message.style.color = "white";
             }
         }, 1000);
 });
@@ -174,11 +185,3 @@ play.addEventListener("click", (event) => {
         boredWidth = boredWidth - 6;
     }else (event = false);
 });
-
-// increase age every x minutes
-
-// morph at certain age
-
-// die if any metric hits 10
-
-// restart game
